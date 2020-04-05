@@ -13,6 +13,7 @@ import image2015 from './electionMaps/2015.png';
 import image2017 from './electionMaps/2017.png';
 import image2019 from './electionMaps/2019.png';
 
+import './ElectionVisualisation.css';
 
   
 class ElectionVisualisation extends React.Component {
@@ -27,50 +28,47 @@ class ElectionVisualisation extends React.Component {
     
     render() {
         return (
-            
-            <table style={{ width:'100%' }}>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <td style={{textAlign: 'left'}}>
-                            <Plot
-                                data={this.state.data}
-                                layout={this.state.layout}
-                                frames={this.state.frames}
-                                onSliderChange={(slider) => {this.setSelectedIndexFromSliderChange(slider); }}
-                                config={{displayModeBar: false, responsive: false}}
-                            />
-                        </td>
-                        <td style={{textAlign: 'right'}}>
-                            <div style={{width: '100%', height: '100%', padding: '1px'}}>
-                                <Carousel fade={true} interval={null} keyboard={false} wrap={true} controls={false} activeIndex={this.state.electionIndex} indicators={false}> 
-                                    <Carousel.Item> 
-                                        <img src={image1997} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2001} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2005} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2010} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2015} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2017} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                    <Carousel.Item>
-                                        <img src={image2019} alt='' width='600px' height='900px'></img>
-                                    </Carousel.Item>
-                                </Carousel>
-                            </div>
-                        </td>
-                    </tr>
-                </thead>
-            </table>
+            <div class="row" style={{width: '100%', height:'100%'}}>
+                <div class="colu-1">
+                    <Plot
+                        style={{width:'100%', height:'100%'}}
+                        data={this.state.data}
+                        useResizeHandler={true}
+                        layout={this.state.layout}
+                        frames={this.state.frames}
+                        onSliderChange={(slider) => {this.setSelectedIndexFromSliderChange(slider); }}
+                        config={{displayModeBar: false, responsive: false, autosizable: true}}
+                    />
+                </div>
+
+                <div class="colu-2" >
+                    <div class="caro-container" >
+                        <Carousel style={{}} fade={true} interval={null} keyboard={false} wrap={true} controls={false} activeIndex={this.state.electionIndex} indicators={false}> 
+                            <Carousel.Item> 
+                                <img src={image1997} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2001} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2005} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2010} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2015} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2017} alt='' ></img>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img src={image2019} alt='' ></img>
+                            </Carousel.Item>
+                        </Carousel>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
